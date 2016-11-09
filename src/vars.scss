@@ -1,35 +1,14 @@
 /**
  * Variables
  */
-// Breakpoints
-$breakpoints: (
-	small: 768px,
-	medium: 1200px,
-);
-@function breakpoints($breakpoint) {
-	@if map-has-key($breakpoints, $breakpoint) {
-		@return map-get($breakpoints, $breakpoint);
-	}
-	@error "breakpoints(), Invalid breakpoint name: `#{$breakpoint}`.";
-}
-
-// Colors
-$colors: (
-	red: #FF0000,
-	orange: #FF7F00,
-	yellow: #FFFF00,
-	green: #00FF00,
-	blue: #0000FF,
-	indigo: #4B0082,
-	violet: #9400D3,
-	primary: #CF649A,
-	secondary: #669999,
-	text: #666666,
-	accent: #E6E6E6,
-);
-@function colors($color) {
-	@if map-has-key($colors, $color) {
-		@return map-get($colors, $color);
-	}
-	@error "colors(), Invalid color name: `#{$color}`.";
-}
+// red: #FF0000,
+// orange: #FF7F00,
+// yellow: #FFFF00,
+// green: #00FF00,
+// blue: #0000FF,
+// indigo: #4B0082,
+// violet: #9400D3,
+// primary: #CF649A,
+// secondary: #669999,
+// text: #666666,
+// accent: #E6E6E6,
