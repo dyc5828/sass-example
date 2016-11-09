@@ -10,7 +10,8 @@
 
 ## Documentations
 
-[SASS Docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+[Sass Docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+
 [Elixir Docs](https://laravel.com/docs/5.3/elixir)
 
 ## Get Started
