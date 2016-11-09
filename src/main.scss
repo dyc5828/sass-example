@@ -1,0 +1,65 @@
+/**
+ * Main Styles
+ */
+@import "./vars";
+
+$background-colors: colors(red) colors(orange) colors(yellow) colors(green) colors(blue) colors(indigo) colors(violet);
+@function background-colors($index) {
+	@return nth($background-colors, $index);
+}
+
+body {
+	color: colors(text);
+	font: {
+		family: sans-serif;
+		size: 1.2em;
+	}
+	margin: 0;
+}
+
+div.boxes {
+	display: flex;
+	flex-direction: row;
+	
+	@media(max-width: breakpoints(small)) {
+		flex-direction: column;
+	}
+}
+
+div.box {
+	width: (100/7) + vw;
+	height: (100/7) + vw;
+	
+	&:after {
+		visibility: hidden;
+		content: attr(data-color);
+		display: block;
+		text-align: center;
+		padding: 5px 10px;
+		color: colors(accent);
+	}
+	
+	&:hover {
+		&:after {
+			visibility: visible;
+		}
+	}
+	
+	@media(max-width: breakpoints(small)) {
+		width: 100vw;
+		height: 100vw;
+	}
+}
+
+@for $i from 1 through 7 {
+	div.box-#{$i} {
+		background: {
+			color: background-colors($i);
+		}
+		&:after {
+			background: {
+				color: darken(background-colors($i), 10%);
+			}
+		}
+	}
+}
