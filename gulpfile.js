@@ -3,8 +3,8 @@
  * 
  * uses laravel-elixir, docs https://laravel.com/docs/5.3/elixir
  */
-const elixir = require('laravel-elixir')
+// const elixir = require('laravel-elixir')
 
-elixir(mix => {
-	mix.sass('./src/main.scss', 'dist/main.min.css')
-})
+// elixir(mix => {
+// 	mix.sass('./src/main.scss', 'dist/main.min.css')
+// })
