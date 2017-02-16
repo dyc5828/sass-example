@@ -1,65 +1,72 @@
 /**
  * Main Styles
  */
-@import "./vars";
+ @import "./vars";
 
-$background-colors: colors(red) colors(orange) colors(yellow) colors(green) colors(blue) colors(indigo) colors(violet);
-@function background-colors($index) {
-	@return nth($background-colors, $index);
-}
+ $box-count: 7;
+ $box-size: (100/$box-count) + vw;
 
-body {
-	color: colors(text);
-	font: {
-		family: sans-serif;
-		size: 1.2em;
-	}
-	margin: 0;
-}
+ $box-colors: $red $orange $yellow $green $blue $indigo $violet;
+ @function box-colors($index) {
+ 	@if $index > length($box-colors) {
+ 		@error('box-colors(), Index of out range: `#{$index}`');
+ 	}
+ 	@return  nth($box-colors, $index); 
+ }
 
-div.boxes {
-	display: flex;
-	flex-direction: row;
-	
-	@media(max-width: breakpoints(small)) {
-		flex-direction: column;
-	}
-}
+ body {
+ 	color: $text;
+ 	font: {
+ 		family: sans-serif;
+ 		size: 1.2em;
+ 	}
+ 	margin: 0;
+ }
 
-div.box {
-	width: (100/7) + vw;
-	height: (100/7) + vw;
-	
-	&:after {
-		visibility: hidden;
-		content: attr(data-color);
-		display: block;
-		text-align: center;
-		padding: 5px 10px;
-		color: colors(accent);
-	}
-	
-	&:hover {
-		&:after {
-			visibility: visible;
-		}
-	}
-	
-	@media(max-width: breakpoints(small)) {
-		width: 100vw;
-		height: 100vw;
-	}
-}
+ h1 {
+ 	color: $header;
+ }
 
-@for $i from 1 through 7 {
-	div.box-#{$i} {
-		background: {
-			color: background-colors($i);
-		}
-		&:after {
-			background: {
-				color: darken(background-colors($i), 10%);
-			}
-		}
-	}
-}
+ div.boxes {
+ 	display: flex;
+ 	flex-direction: row;
+ 	
+ 	@media(max-width: breakpoints(small)) {
+ 		flex-direction: column;
+ 	}
+ }
+
+ div.box {
+ 	width: $box-size;
+ 	height: $box-size;
+ 	
+ 	&:after {
+ 		visibility: hidden;
+ 		content: attr(data-color);
+ 		display: block;
+ 		text-align: center;
+ 		padding: 5px 10px;
+ 	}
+ 	
+ 	&:hover {
+ 		&:after {
+ 			visibility: visible;
+ 		}
+ 	}
+ 	
+ 	@media(max-width: breakpoints(small)) {
+ 		width: 100vw;
+ 		height: 100vw;
+ 	}
+ }
+
+ @for $i from 1 through $box-count {
+ 	div.box-#{$i} {
+ 		background-color: box-colors($i);
+ 		&:after {
+ 			background: {
+ 				color: darken(box-colors($i), 10%);
+ 			}
+ 		}
+ 	}
+ }
